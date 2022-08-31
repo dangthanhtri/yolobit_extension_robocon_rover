@@ -1,0 +1,16 @@
+{
+    "name": "ROBOCON",
+    "description": "Mục mở rộng các khối lệnh dành cho thi đấu Robocon dành cho bộ kit xe điều khiển Rover",
+    "libs": [
+        "robot.py"
+    ],
+    "blocks": [
+        "definition.js"
+    ],
+    "toolbox": "toolbox.xml",
+    "languages": {
+        "en": "languages/en.js",
+        "vi": "languages/vi.js"
+    },
+    "poster": "racing.png"
+}

@@ -1,26 +1,9 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
   <category name="ROBOCON" colour="#cb2026" icon="flag">
-    <block type="rover_turn_until_line_detected">
-      <value name="m1_speed">
-        <shadow type="math_number">
-          <field name="NUM">50</field>
-        </shadow>
-      </value>
-      <value name="m2_speed">
-        <shadow type="math_number">
-          <field name="NUM">50</field>
-        </shadow>
-      </value>
-      <value name="second">
-        <shadow type="math_number">
-          <field name="NUM">5</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="rover_follow_line_until">
+    <block type="robocon_follow_line_until">
       <value name="speed">
         <shadow type="math_number">
-          <field name="NUM">50</field>
+          <field name="NUM">30</field>
         </shadow>
       </value>
       <value name="condition">
@@ -31,15 +14,51 @@
         </shadow>
       </value>
     </block>
-    <block type="rover_follow_line_delay">
+    <block type="robocon_follow_line_delay">
       <value name="speed">
         <shadow type="math_number">
-          <field name="NUM">50</field>
+          <field name="NUM">30</field>
         </shadow>
       </value>
       <value name="timeout">
         <shadow type="math_number">
-          <field name="NUM">1</field>
+          <field name="NUM">5</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="robocon_turn_until_line_detected">
+      <value name="m1_speed">
+        <shadow type="math_number">
+          <field name="NUM">30</field>
+        </shadow>
+      </value>
+      <value name="m2_speed">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="timeout">
+        <shadow type="math_number">
+          <field name="NUM">5</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="robocon_turn_until_condition">
+      <value name="m1_speed">
+        <shadow type="math_number">
+          <field name="NUM">30</field>
+        </shadow>
+      </value>
+      <value name="m2_speed">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="condition">
+      </value>
+      <value name="timeout">
+        <shadow type="math_number">
+          <field name="NUM">5</field>
         </shadow>
       </value>
     </block>

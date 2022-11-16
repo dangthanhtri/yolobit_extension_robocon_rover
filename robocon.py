@@ -116,11 +116,19 @@ def turn_until_line_detected(m1_speed, m2_speed, timeout=5000):
                 #    count = count + 1
         else: # meet white background
             last_line_status = 0
-  
+                
         time.sleep_ms(10)
-
     rover.stop()
-
+    time.sleep_ms(500) # time stop
+    if rover.read_line_sensors() == (0, 0, 0, 0): # moved off black line
+        while True:
+            rover.set_wheel_speed(-(m1_speed), -(m2_speed)) # turning back when meet white background
+            if (rover.read_line_sensors(1) or rover.read_line_sensors(2) or rover.read_line_sensors(3) or rover.read_line_sensors(4)): #check line sensor meet black line
+                rover.stop()
+                break
+            time.sleep_ms(10)
+    rover.stop()
+    time.sleep_ms(1000)
 
 def turn_until_condition(m1_speed, m2_speed, condition, timeout=5000):
     count = 0
@@ -137,3 +145,4 @@ def turn_until_condition(m1_speed, m2_speed, condition, timeout=5000):
         time.sleep_ms(10)
 
     rover.stop()
+    time.sleep_ms(1000)

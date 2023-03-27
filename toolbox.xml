@@ -63,4 +63,66 @@
       </value>
     </block>
   </category>
+  
+  <category name="GAMEPAD" colour="#cb2026" icon="gamepad">
+    <block type="gamepad_init"/>
+
+    <block type="gamepad_mode"/>
+
+    <block type="gamepad_speed_btn"/>
+
+    <block type="gamepad_set_gripper"/>
+
+    <block type="gamepad_set_ball_launcher"/>
+
+    <block type="gamepad_set_led_rgb">
+      <value name="color">
+        <shadow type="colour_picker">
+          <field name="COLOUR">#0000ff</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="gamepad_set_rumble">
+      <value name="force">
+        <shadow type="math_number">
+          <field name="NUM">50</field>
+        </shadow>
+      </value>
+      <value name="duration">
+        <shadow type="math_number">
+          <field name="NUM">1000</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="gamepad_line_btn">
+      <value name="speed">
+        <shadow type="math_number">
+          <field name="NUM">30</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="gamepad_turbo_btn"/>
+
+    <block type="gamepad_change_mode_btn"/>
+
+    <block type="gamepad_processing"/>
+
+    <block type="gamepad_set_servo">
+      <value name="angle_min">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+
+      <value name="angle_max">
+        <shadow type="math_number">
+          <field name="NUM">90</field>
+        </shadow>
+      </value>
+    </block>
+
+  </category>
 </xml>

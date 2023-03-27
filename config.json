@@ -2,7 +2,9 @@
     "name": "ROBOCON",
     "description": "Thư viện khối lệnh bổ sung cho thi đấu Robocon của robot Rover",
     "libs": [
-        "robocon.py"
+        "robocon.py",
+        "gamepad.py",
+        "gamepad_handler.py"
     ],
     "blocks": [
         "definition.js"

@@ -1271,3 +1271,26 @@ Blockly.Python['gamepad_change_mode_btn'] = function (block) {
   var code = "gamepad_handler.set_change_mode_btn('" + btn + "')\n";
   return code;
 };
+
+Blockly.Blocks['gamepad_is_connected'] = {
+  init: function () {
+    this.jsonInit(
+      {
+        "type": "gamepad_is_connected",
+        "message0": "đang kết nối gamepad",
+        "args0": [
+        ],
+        "colour": ColorBlock,
+        "output": "Boolean",
+        "tooltip": "",
+        "helpUrl": ""
+      }
+    );
+  }
+};
+
+Blockly.Python["gamepad_is_connected"] = function (block) {
+  // TODO: Assemble Python into code variable.
+  var code = "gamepad_handler.is_connected()";
+  return [code, Blockly.Python.ORDER_NONE];
+};

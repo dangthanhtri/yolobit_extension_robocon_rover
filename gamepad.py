@@ -2,7 +2,6 @@ from machine import Pin, SoftI2C
 from time import sleep, ticks_ms
 import math
 from micropython import const
-
 from utility import *
 
 _GAMEPAD_RECEIVER_ADDR = const(0x55)
@@ -34,10 +33,11 @@ _MISC_BUTTON_M2 = const(2)      # AKA: Start, Options, +
 
 class GamePadReceiver:
     def __init__(self, i2c):
-        self.i2c = i2c
+        self._i2c = i2c
 
         self._verbose = False
         self._last_print = ticks_ms()
+        self._isconnected = False
 
         self.data = {
             'dpad': 0,
@@ -98,11 +98,16 @@ class GamePadReceiver:
             return raw
 
     def _write(self, address, value):
-        self.i2c.writeto_mem(_GAMEPAD_RECEIVER_ADDR, address, value)
+        self._i2c.writeto_mem(_GAMEPAD_RECEIVER_ADDR, address, value)
 
     def update(self):
-        result = self.i2c.readfrom(_GAMEPAD_RECEIVER_ADDR, 30)
+        result = self._i2c.readfrom(_GAMEPAD_RECEIVER_ADDR, 30)
         has_data = result[0]
+
+        if has_data == 1:
+            self._isconnected = True
+        else:
+            self._isconnected = False
 
         if has_data:
             self.dpad = result[1]

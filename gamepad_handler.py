@@ -228,16 +228,18 @@ class GamepadHandler():
                     self.set_led_color('#800080')
 
                 if self.gamepad.data[self.btnIncr]:
-                    self._speed = (self._speed if isinstance(
-                        self._speed, (int, float)) else 0) + 1
-                    if self._speed > 100:
-                        self._speed = 100
+                    if self.filter_btn_data(self.btnIncr):
+                        self._speed = (self._speed if isinstance(
+                            self._speed, (int, float)) else 0) + 5
+                        if self._speed > 100:
+                            self._speed = 100
 
                 if self.gamepad.data[self.btnDecr]:
-                    self._speed = (self._speed if isinstance(
-                        self._speed, (int, float)) else 0) - 1
-                    if self._speed < 0:
-                        self._speed = 0
+                    if self.filter_btn_data(self.btnDecr):
+                        self._speed = (self._speed if isinstance(
+                            self._speed, (int, float)) else 0) - 5
+                        if self._speed < 0:
+                            self._speed = 0
 
                 if self.btnTurboMode != None:
                     if self.gamepad.data[self.btnTurboMode]:

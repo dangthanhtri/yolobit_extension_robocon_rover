@@ -416,7 +416,7 @@ Blockly.Blocks['gamepad_set_servo'] = {
     this.jsonInit(
       {
         type: "gamepad_set_servo",
-        message0: "cài đặt điều khiển servo %1: nút %2 vị trí %3 nút %4 vị trí %5",
+        message0: "cài đặt điều khiển servo %1: nút %2 vị trí %3 nút %4 vị trí %5 tốc độ %6",
         previousStatement: null,
         nextStatement: null,
         args0: [
@@ -543,6 +543,10 @@ Blockly.Blocks['gamepad_set_servo'] = {
           {
             type: "input_value",
             name: "angle_max"
+          },
+          {
+            type: "input_value",
+            name: "speed"
           }],
         inputsInline: true,
         previousStatement: null,
@@ -574,8 +578,9 @@ Blockly.Python['gamepad_set_servo'] = function (block) {
 
   var angle_min = Blockly.Python.valueToCode(block, 'angle_min', Blockly.Python.ORDER_ATOMIC);
   var angle_max = Blockly.Python.valueToCode(block, 'angle_max', Blockly.Python.ORDER_ATOMIC);
+  var speed = Blockly.Python.valueToCode(block, 'speed', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = "gamepad_handler.set_servo_btn(" + servo + ", '" + btn1 + "', '" + btn2 + "', " + angle_min + ", " + angle_max + ")\n";
+  var code = "gamepad_handler.set_servo_btn(" + servo + ", '" + btn1 + "', '" + btn2 + "', " + angle_min + ", " + angle_max + ", " + speed + ")\n";
   return code;
 };
 
